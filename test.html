@@ -11,20 +11,260 @@
        background-image: url(./images/2.jpg);
        background-size: 1300px 700px;
 	}
+	#green{
+     color: red;
+	}
+	#xianshi{
+		width: 300px；
+		height:200px;
+		color: green;
+		display: none;
+	}
+	#q1
+	{
+      
+       width: 40px;
+       height: 55px;
+       display: none;
+	}
+	#div1 .active
+	{
+		background-color: white;
+	
+	}
+    #div1 div
+    {   width: 300px;
+    	height: 200px;
+        background-color: #BBBBBB;
+        display: none;
+
+    }
+
+   #q6 
+   {
+     font-size: 50px;
+     color: white;
+     text-align: center;
+     background-color: black;
+ 
+   }
+    #q6 span
+   {
+     font-size: 50px;
+     color: white;
+     background-color: black;
+
+   }
 	
 </style>
+<script type="text/javascript">
+	function xianshichulai()
+	{
+       document.getElementById('xianshi').style.display='block';
+       document.getElementById('xianshi').style.width='500px';
+       document.getElementById('xianshi').style.height='30px';
+       document.getElementById('xianshi').style.color='red';
+	}
+	function yinchangqilai()
+	{
+		document.getElementById('xianshi').style.display='none';
+	}
+	function zhanghsi()
+	{    
+		if (document.getElementById('q1').style.display=='none') 
+		{
+			document.getElementById('q1').style.display='block';
+		}
+		else
+		{
+			document.getElementById('q1').style.display='none';
+		}
+	}
+	function sosuo()
+    {
+       var ab=document.getElementById('e1');
+       ab.value='我喜欢小安  哈哈才怪';
+          
+    }
+
+    function shizhong(n)
+    {
+    	if (n<10) 
+    	{
+    		return '0'+n;
+    	}
+    	else
+    	{
+    		return ''+n;
+    	}
+    }
+    function shizhong2(n)
+    {
+    	return ''+n;
+    }
+   window.onload=function()
+   {
+   	    var aaa=document.getElementById('q2');
+    	var bbb=document.getElementById('q3');
+    	var ccc=bbb.getElementsByTagName('input');
+    	var ddd=document.getElementById('q4');
+    	var eee=document.getElementById('q5');
+    	aaa.onclick=function ()
+    	{
+           for (var i=0;i<ccc.length;i++) 
+           {
+           	ccc[i].checked=true;
+           }
+    	}
+    	ddd.onclick=function ()
+    	{
+           for (var i=0;i<ccc.length;i++) 
+           {
+           	ccc[i].checked=false;
+           }
+    	}
+    	eee.onclick=function ()
+    	{
+           for (var i=0;i<ccc.length;i++) 
+           {
+           	if(ccc[i].checked==true)
+           	{
+           		ccc[i].checked=false;
+           	}
+           	else 
+           	{
+           		ccc[i].checked=true;
+           	}
+           	
+           }
+    	}
+       var qwe=document.getElementById('div1');
+       var qaz=qwe.getElementsByTagName('input');
+       var uio=qwe.getElementsByTagName('div');
+       
+         for (var i = 0; i < qaz.length; i++) 
+         {
+         	qaz[i].index=i;
+         	qaz[i].onclick=function ()
+       	  {
+             for (var i = 0; i < qaz.length; i++)
+              {
+             	qaz[i].className='';
+             	uio[i].style.display='none';
+
+             }
+             this.className='active';
+             uio[this.index].style.display='block';
+       	  }
+         }
+       function  tick()
+       {
+       	 var oDiv=document.getElementById('q6');
+       	 var oDiv2=document.getElementById('q7');
+         var oImg1=oDiv.getElementsByTagName('img');
+         var oImg2=oDiv2.getElementsByTagName('img');
+         var oDate=new Date();
+         var str1=shizhong(oDate.getHours())+shizhong(oDate.getMinutes())+shizhong(oDate.getSeconds());
+         var str2=shizhong2(oDate.getFullYear())+shizhong2((oDate.getMonth()+1))+shizhong2(oDate.getDate());
+         for (var i = 0; i < oImg1.length; i++) 
+         {
+         	oImg1[i].src='images/'+str1[i]+'.png';
+         }
+         for (var i = 0; i < oImg2.length; i++) 
+         {
+         	oImg2[i].src='images/'+str2[i]+'.png';
+         } 	 
+       }
+       setInterval(tick,1000);
+       tick();
+        
+        var oUl=document.getElementById('q8');
+        var oBtn=document.getElementById('btn');
+        var oText=document.getElementById('text');
+        oBtn.onclick=function()
+        {
+        	 var oLi=document.createElement('li');
+        	 var oLi1=document.getElementsByTagName('li');
+        	 //oUl.appendChild(oLi);
+        	 oUl.insertBefore(oLi,oLi1[0]);
+        	 oLi.innerHTML=oText.value;
+
+        }
+
+     
+ 
+
+   }
+  
+</script>
 <body>
-<audio controls="controls" autoplay="autoplay">
+<div id="q6">
+    <img src="images/0.png" > 
+    <img src="images/0.png" >
+    :
+    <img src="images/0.png">
+    <img src="images/0.png">
+    :
+    <img src="images/0.png">
+    <img src="images/0.png">
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <span id="q7">
+    <img src="images/0.png" >
+    <img src="images/0.png" >
+    <img src="images/0.png">
+    <img src="images/0.png">
+    /
+    <img src="images/0.png">
+    /
+    <img src="images/0.png">
+    <img src="images/0.png">
+</span>
+</div>
+
+<audio >
   <source src="wav/1.mp3" type="audio/mp3" />
 </audio>
-<div>网盘搜索  用于电子书和
+<div  onmouseover="xianshichulai()" onmouseout="yinchangqilai()">网盘搜索 
 	 <a href="https://www.yunpanjingling.com">云盘精灵</a>
      <a href="https://www.dalipan.com/">大力盘</a>
-</div>
+</div >
+<div id='xianshi'>ps:主要用于电子书和影视资源搜索 会帮你打开另一个世界</div>
 <div>学习网站
-	 <a href="http://oeasy.org/">oeasy</a>
-     <a href="https://www.dalipan.com/">大力盘</a>
+	
+     <input type="button" name="t1" value="显示"  onclick="zhanghsi()">
 </div>
+<div id="q1">
+	<a href="https://www.oeasy.org/">oeasy</a>
+    <a href="https://www.bilibili.com/">b站</a>
+</div>
+<div>
+	<input type="text" name="t2" id="e1">
+	<input type="button" value="搜索" onclick="sosuo()">
+</div>
+
+	<input type="button" value="全选" id='q2'>
+	<input type="button" value="不选" id='q4'>
+	<input type="button" value="反选" id='q5'>
+<div id='q3'>
+	<input type="checkbox" >喜欢小安<br>
+	<input type="checkbox" >不喜欢小安<br>
+	<input type="checkbox" >一点点喜欢<br>
+	<input type="checkbox" >比较多喜欢<br>
+	<input type="checkbox" >超级喜欢<br>
+</div>
+<div id="div1">
+     <input type="button" value="信息搜索" class="active">
+     <input type="button" value="音乐">
+     <input type="button" value="插件">
+     <div style="display:block;">以图搜图</div>
+     <div>网易云音乐</div>
+     <div>greak.org</div>
+</div>
+<input type="text" id="text">
+<input type="button" value="创建" id="btn">
+<ul id="q8">
+</ul>
+
 
 </body>
 </html>
